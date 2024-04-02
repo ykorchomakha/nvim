@@ -6,7 +6,8 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>ft', builtin.lsp_dynamic_workspace_symbols, {})
 vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
 
-require('telescope').setup{
+local telescope = require('telescope')
+telescope.setup{
     defaults = {
         file_ignore_patterns = {"node_modules", "target"}
     }
