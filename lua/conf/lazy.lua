@@ -64,6 +64,7 @@ require('lazy').setup({
     { 'vim-endwise' },
     { 'tpope/vim-fugitive' },
     { 'lewis6991/gitsigns.nvim' },
+    { 'tpope/vim-commentary' },
 
     -- Debugger
     { 'mfussenegger/nvim-dap' },
