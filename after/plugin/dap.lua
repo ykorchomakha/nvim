@@ -37,7 +37,8 @@ dap.configurations.rust = {
     }
 }
 
-vim.keymap.set('n', '<F3>', dap.toggle_breakpoint, {})
-vim.keymap.set('n', '<F5>', dap.continue, {})
-vim.keymap.set('n', '<F7>', dap.step_into, {})
-vim.keymap.set('n', '<F8>', dap.step_over, {})
+vim.keymap.set('n', '<leader>bp', dap.toggle_breakpoint, {})
+vim.keymap.set('n', '<leader>dc', dap.continue, {})
+vim.keymap.set('n', '<leader>di', dap.step_into, {})
+vim.keymap.set('n', '<leader>do', dap.step_over, {})
+
