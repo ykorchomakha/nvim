@@ -17,6 +17,13 @@ require('mason-lspconfig').setup({
   },
 })
 
+local lspconfig = require('lspconfig')
+lspconfig.jdtls.setup {
+    cmd = {
+        "jdtls",
+        "--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand "$MASON/share/jdtls/lombok.jar"),
+    }
+}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
