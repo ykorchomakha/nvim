@@ -66,6 +66,18 @@ require('lazy').setup({
     { 'lewis6991/gitsigns.nvim' },
     { 'tpope/vim-commentary' },
 
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end,
+    },
+
     -- Debugger
     { 'mfussenegger/nvim-dap' },
     { 'nvim-neotest/nvim-nio' },
