@@ -61,8 +61,8 @@ require('lazy').setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     { 'jiangmiao/auto-pairs' },
-    { 'vim-endwise' },
-    { 'tpope/vim-fugitive' },
+    -- { 'vim-endwise' },
+    -- { 'tpope/vim-fugitive' },
     { 'lewis6991/gitsigns.nvim' },
     { 'tpope/vim-commentary' },
 
@@ -85,5 +85,26 @@ require('lazy').setup({
     { 'theHamsta/nvim-dap-virtual-text' },
     { 'nvim-telescope/telescope-dap.nvim' },
     { 'leoluz/nvim-dap-go' },
+
+    -- lazygit
+    {
+        "kdheepak/lazygit.nvim",
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
+        },
+        -- optional for floating window border decoration
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        -- setting the keybinding for LazyGit with 'keys' is recommended in
+        -- order to load the plugin when the command is run for the first time
+        keys = {
+            { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+        }
+    },
 })
 
