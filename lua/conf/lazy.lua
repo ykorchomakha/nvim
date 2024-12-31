@@ -61,8 +61,8 @@ require('lazy').setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     { 'jiangmiao/auto-pairs' },
-    -- { 'vim-endwise' },
-    -- { 'tpope/vim-fugitive' },
+    { 'tpope/vim-endwise' },
+    { 'tpope/vim-fugitive' },
     { 'lewis6991/gitsigns.nvim' },
     { 'tpope/vim-commentary' },
 
