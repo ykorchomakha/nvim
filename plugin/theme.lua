@@ -1,6 +1,3 @@
-require("catppuccin").setup({
-	flavour = "mocha"
-})
-
-vim.cmd.colorscheme "catppuccin"
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd([[colorscheme gruvbox]])
 

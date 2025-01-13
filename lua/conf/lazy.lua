@@ -20,7 +20,7 @@ require('lazy').setup({
         tag = '0.1.4',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
