@@ -8,6 +8,7 @@ end)
 
 vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format, {})
 vim.keymap.set('n', '<leader>qf', vim.lsp.buf.code_action, {})
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
@@ -73,3 +74,14 @@ cmp.setup {
   },
 }
 
+vim.diagnostic.config({
+  virtual_text = false,
+  float = {
+    border = "rounded",
+    source = "always",
+    focusable = false,
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
