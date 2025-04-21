@@ -14,13 +14,22 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
-    { 'neovim/nvim-lspconfig' },
+    {
+        'neovim/nvim-lspconfig',
+        -- opts = {
+        --     setup = {
+        --         rust_analyzer = function()
+        --             return true
+        --         end,
+        --     },
+        -- },
+    },
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.4',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
+    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
@@ -81,7 +90,7 @@ require('lazy').setup({
     -- Debugger
     { 'mfussenegger/nvim-dap' },
     { 'nvim-neotest/nvim-nio' },
-    { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } },
+    { 'rcarriga/nvim-dap-ui',             requires = { 'mfussenegger/nvim-dap' } },
     { 'theHamsta/nvim-dap-virtual-text' },
     { 'nvim-telescope/telescope-dap.nvim' },
     { 'leoluz/nvim-dap-go' },
@@ -113,5 +122,10 @@ require('lazy').setup({
     },
     -- autosave
     { 'pocco81/auto-save.nvim' },
+    -- rust
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^6', -- Recommended
+        lazy = false,   -- This plugin is already lazy
+    },
 })
-
