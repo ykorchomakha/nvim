@@ -12,8 +12,23 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    { 'williamboman/mason.nvim' },
-    { 'williamboman/mason-lspconfig.nvim' },
+    { 'mason-org/mason.nvim' },
+    {
+        'mason-org/mason-lspconfig.nvim',
+        opts = {
+            ensure_installed = {
+                'clangd',
+                'gopls',
+                'jdtls',
+                'kotlin_lsp',
+                'lua_ls',
+                'pyright',
+                'ruff',
+                'rust_analyzer',
+                'ts_ls',
+            },
+        }
+    },
     {
         'neovim/nvim-lspconfig',
     },
@@ -29,7 +44,18 @@ require('lazy').setup({
             local configs = require('nvim-treesitter.configs')
 
             configs.setup({
-                ensure_installed = { 'lua', 'java' },
+                ensure_installed = {
+                    'c',
+                    'cpp',
+                    'go',
+                    'java',
+                    'kotlin',
+                    'lua',
+                    'python',
+                    'rust',
+                    'javascript',
+                    'typescript',
+                },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },
