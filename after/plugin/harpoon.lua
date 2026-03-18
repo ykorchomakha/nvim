@@ -25,6 +25,5 @@ end
 vim.keymap.set("n", keymap['harpoon_add'], function() harpoon:list():add() end)
 vim.keymap.set("n", keymap['harpoon_quick_menu'], function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 vim.keymap.set("n", keymap['harpoon_telescope'], function() toggle_telescope(harpoon:list()) end)
-vim.keymap.set("n", keymap['harpoon_previous'], function() harpoon:list():prev() end)
-vim.keymap.set("n", keymap['harpoon_next'], function() harpoon:list():next() end)
-
+vim.keymap.set("n", keymap['harpoon_previous'], function() harpoon:list():prev({ ui_nav_wrap = true }) end)
+vim.keymap.set("n", keymap['harpoon_next'], function() harpoon:list():next({ ui_nav_wrap = true }) end)

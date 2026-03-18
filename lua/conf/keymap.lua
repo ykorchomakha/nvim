@@ -55,6 +55,7 @@ local keys = {
 
     -- misc
     ['terminal'] = '<leader>ot',
+    ['git'] = '<leader>gg'
 }
 
 vim.keymap.set('n', keys['quit'], ":qa<CR>")
@@ -71,5 +72,6 @@ vim.keymap.set('n', keys['vertical_split'], ':vsplit<CR><C-w>l')
 vim.keymap.set('n', keys['save_file'], ':w<CR>')
 
 vim.keymap.set('n', keys['terminal'], ':terminal<CR>')
+vim.keymap.set('n', keys['git'], ':Git<CR>')
 
 return keys
