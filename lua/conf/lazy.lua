@@ -14,13 +14,14 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
-    { 'neovim/nvim-lspconfig' },
+    {
+        'neovim/nvim-lspconfig',
+    },
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.4',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
+    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
@@ -48,6 +49,8 @@ require('lazy').setup({
             { 'hrsh7th/cmp-nvim-lsp' },
         }
     },
+    -- Java extras
+    { 'mfussenegger/nvim-jdtls' },
     -- Autocompletion
     {
         'hrsh7th/nvim-cmp',
@@ -66,6 +69,16 @@ require('lazy').setup({
     { 'lewis6991/gitsigns.nvim' },
     { 'tpope/vim-commentary' },
 
+    -- Debugger
+    { 'mfussenegger/nvim-dap' },
+    { 'nvim-neotest/nvim-nio' },
+    { 'rcarriga/nvim-dap-ui',             requires = { 'mfussenegger/nvim-dap' } },
+    { 'theHamsta/nvim-dap-virtual-text' },
+    { 'nvim-telescope/telescope-dap.nvim' },
+    { 'leoluz/nvim-dap-go' },
+    { 'tpope/vim-vinegar' },
+
+    -- File tree
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
@@ -78,40 +91,38 @@ require('lazy').setup({
         end,
     },
 
-    -- Debugger
-    { 'mfussenegger/nvim-dap' },
-    { 'nvim-neotest/nvim-nio' },
-    { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } },
-    { 'theHamsta/nvim-dap-virtual-text' },
-    { 'nvim-telescope/telescope-dap.nvim' },
-    { 'leoluz/nvim-dap-go' },
-
-    -- lazygit
+    -- Tests
     {
-        "kdheepak/lazygit.nvim",
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
-        -- optional for floating window border decoration
+        'nvim-neotest/neotest',
         dependencies = {
-            "nvim-lua/plenary.nvim",
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter',
+            'antoinemadec/FixCursorHold.nvim',
+            'rcasia/neotest-java',
         },
-        -- setting the keybinding for LazyGit with 'keys' is recommended in
-        -- order to load the plugin when the command is run for the first time
-        keys = {
-            { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-        }
     },
+
     -- status line
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
-    -- autosave
-    { 'pocco81/auto-save.nvim' },
-})
+    -- tmux navigation
+    {
+        'alexghergh/nvim-tmux-navigation',
+        config = function()
+            local nvim_tmux_nav = require('nvim-tmux-navigation')
 
+            nvim_tmux_nav.setup {
+                disable_when_zoomed = true -- defaults to false
+            }
+
+            vim.keymap.set('n', "<M-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+            vim.keymap.set('n', "<M-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+            vim.keymap.set('n', "<M-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+            vim.keymap.set('n', "<M-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+            vim.keymap.set('n', "<M-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
+            vim.keymap.set('n', "<M-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+        end
+    },
+})

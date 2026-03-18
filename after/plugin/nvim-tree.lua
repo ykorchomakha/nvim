@@ -34,4 +34,6 @@ local function show_tree()
     end
 end
 
-vim.keymap.set("n", "<leader>pv", show_tree)
+
+local keymap = require('conf.keymap')
+vim.keymap.set('n', keymap['file_explorer'], show_tree, {})

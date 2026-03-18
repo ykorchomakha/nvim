@@ -1,15 +1,15 @@
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>ft', builtin.lsp_dynamic_workspace_symbols, {})
-vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
+local keymap = require('conf.keymap')
+vim.keymap.set('n', keymap['find_files'], function() builtin.find_files({path_display = { 'smart' }}) end, {})
+vim.keymap.set('n', keymap['git_files'], function() builtin.git_files({path_display = { 'smart' }}) end, {})
+vim.keymap.set('n', keymap['live_grep'], builtin.live_grep, {})
+vim.keymap.set('n', keymap['find_workspace_symbols'], builtin.lsp_dynamic_workspace_symbols, {})
+vim.keymap.set('n', keymap['find_references'], builtin.lsp_references, {})
 
 local telescope = require('telescope')
-telescope.setup{
+telescope.setup {
     defaults = {
-        file_ignore_patterns = {"node_modules", "target"}
+        path_display = { 'smart' },
+        file_ignore_patterns = { 'node_modules', 'target', '.settings', '.idea' }
     }
 }
-

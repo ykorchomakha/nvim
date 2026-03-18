@@ -37,8 +37,9 @@ dap.configurations.rust = {
     }
 }
 
-vim.keymap.set('n', '<leader>bp', dap.toggle_breakpoint, {})
-vim.keymap.set('n', '<leader>dc', dap.continue, {})
-vim.keymap.set('n', '<leader>di', dap.step_into, {})
-vim.keymap.set('n', '<leader>do', dap.step_over, {})
+local keymap = require('conf.keymap')
+vim.keymap.set('n', keymap['debug_toggle_breakpoint'], dap.toggle_breakpoint, {})
+vim.keymap.set('n', keymap['debug_continue'], dap.continue, {})
+vim.keymap.set('n', keymap['debug_step_into'], dap.step_into, {})
+vim.keymap.set('n', keymap['debug_step_over'], dap.step_over, {})
 

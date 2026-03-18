@@ -6,9 +6,11 @@ lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
-vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format, {})
-vim.keymap.set('n', '<leader>qf', vim.lsp.buf.code_action, {})
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+local keymap = require('conf.keymap')
+
+vim.keymap.set('n', keymap['format_code'], vim.lsp.buf.format, {})
+vim.keymap.set('n', keymap['code_action'], vim.lsp.buf.code_action, {})
+vim.keymap.set('n', keymap['diagnostic_float'], vim.diagnostic.open_float)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
@@ -18,13 +20,13 @@ require('mason-lspconfig').setup({
   },
 })
 
-local lspconfig = require('lspconfig')
-lspconfig.jdtls.setup {
-    cmd = {
-        "jdtls",
-        "--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand "$MASON/share/jdtls/lombok.jar"),
-    }
-}
+vim.lsp.config('jdtls',
+    {
+        cmd = {
+            "jdtls",
+            "--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand "$MASON/share/jdtls/lombok.jar"),
+        }
+    })
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`

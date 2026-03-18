@@ -1,5 +1,6 @@
 local dapui = require('dapui')
 dapui.setup()
 
-vim.keymap.set('n', '<leader>du', dapui.toggle, {})
+local keymap = require('conf.keymap')
+vim.keymap.set('n', keymap['debug_toggle_ui'], dapui.toggle, {})
 
