@@ -15,19 +15,11 @@ require('lazy').setup({
     { 'mason-org/mason.nvim' },
     {
         'mason-org/mason-lspconfig.nvim',
-        opts = {
-            ensure_installed = {
-                'clangd',
-                'gopls',
-                'jdtls',
-                'kotlin_lsp',
-                'lua_ls',
-                'pyright',
-                'ruff',
-                'rust_analyzer',
-                'ts_ls',
-            },
-        }
+        opts = {},
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
     },
     {
         'neovim/nvim-lspconfig',
