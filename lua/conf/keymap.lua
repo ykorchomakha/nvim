@@ -30,7 +30,11 @@ local keys = {
 
     -- harpoon
     ['harpoon_add'] = '<leader>ha',
+    ['harpoon_remove'] = '<leader>hr',
     ['harpoon_quick_menu'] = '<leader>hm',
+    ['harpoon_telescope'] = '<leader>ht',
+    ['harpoon_next'] = '<leader>hn',
+    ['harpoon_previous'] = '<leader>hp',
 
     -- LSP
     ['find_workspace_symbols'] = '<leader>cj',
