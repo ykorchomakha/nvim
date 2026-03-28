@@ -147,8 +147,24 @@ require('lazy').setup({
         "folke/noice.nvim",
         event = "VeryLazy",
         opts = {
-            -- add any options here
-        },
+            routes = {
+                {
+                    filter = {
+                        event = "cmdline",
+                        find = "EndwiseDiscretionary",
+                    },
+                    opts = { skip = true },
+                },
+                {
+                    filter = {
+                        event = "lsp",
+                        kind = "progress",
+                        find = "jdtls",
+                    },
+                    opts = { skip = true },
+                },
+            },
+        }, 
         dependencies = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
             "MunifTanjim/nui.nvim",
