@@ -14,7 +14,7 @@ local function git_files(opts)
     if is_git_repo() then
         builtin.git_files(opts)
     else
-        print("Not a Git Repo")
+        vim.notify("Not a Git Repo")
     end
 end
 

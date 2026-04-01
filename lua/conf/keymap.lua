@@ -58,6 +58,7 @@ local keys = {
     ['git_pull'] = '<leader>gp',
     ['git_push'] = '<leader>gP',
     ['git_branch'] = '<leader>gb',
+    ['git_new_branch'] = '<leader>gn',
 
     -- misc
     ['terminal'] = '<leader>ot',
@@ -81,6 +82,7 @@ vim.keymap.set('n', keys['terminal'], ':terminal<CR>')
 vim.keymap.set('n', keys['git'], ':Git<CR>')
 vim.keymap.set('n', keys['git_pull'], ':Git pull<CR>')
 vim.keymap.set('n', keys['git_push'], ':Git push<CR>')
-vim.keymap.set('n', keys['git_branch'], ':Git branch<CR>')
+vim.keymap.set('n', keys['git_branch'], ':Telescope git_branches<CR>')
+vim.keymap.set('n', keys['git_new_branch'], ':Git checkout -b ')
 
 return keys
